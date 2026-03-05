@@ -16,7 +16,7 @@ SCENE_CODE = "写代码的小猫"
 SCENE_WELCOME = "欢迎小猫"  
 # 触发词
 KEYWORDS_TALK = ["概念", "理论", "原理", "应用", "场景","定义"]
-KEYWORDS_CODE = ["代码", "编程", "程序", "写一下", "示例","select","from"]
+KEYWORDS_CODE = ["代码", "编程", "程序", "group by", "示例","select","from"]
 KEYWORDS_WELCOME = ["朋友", "CDA", "大家好","数据分析师"]
 # 自动返回默认场景的秒数
 SILENCE_TIMEOUT = 10 
@@ -35,7 +35,7 @@ def main():
     try:
         client = obs.ReqClient(host="localhost", port=4455, password=OBS_PASSWORD)
         print("✅ OBS 连接成功")
-        client.set_current_program_scene(SCENE_DEFAULT)
+        client.set_current_program_scene(SCENE_TALK)
     except Exception as e:
         print(f"❌ OBS 连接失败: {e}")
         return
@@ -57,10 +57,10 @@ def main():
                     frames_per_buffer=8000,
                     stream_callback=audio_callback)
 
-    print(f"🎤 Vosk 离线识别启动... (当前默认场景: {SCENE_DEFAULT})")
+    print(f"🎤 Vosk 离线识别启动... (当前默认场景: {SCENE_TALK})")
     
     last_action_time = time.time()
-    current_scene = SCENE_DEFAULT
+    current_scene = SCENE_TALK
 
     try:
         stream.start_stream()
@@ -100,10 +100,10 @@ def main():
                 
                 elif found_code:
                     last_action_time = time.time()
-                    if current_scene != SCENE_TALK:
-                        print(f"🚀 识别到关键词 -> 切换至: {SCENE_TALK}")
-                        client.set_current_program_scene(SCENE_TALK)
-                        current_scene = SCENE_TALK
+                    if current_scene != SCENE_CODE:
+                        print(f"🚀 识别到关键词 -> 切换至: {SCENE_CODE}")
+                        client.set_current_program_scene(SCENE_CODE)
+                        current_scene = SCENE_CODE
                         rec.Reset()
                 elif found_welcome:
                     last_action_time = time.time()
