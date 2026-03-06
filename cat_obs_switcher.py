@@ -16,7 +16,7 @@ SCENE_CODE = "写代码的小猫"
 SCENE_WELCOME = "欢迎小猫"  
 # 触发词
 KEYWORDS_TALK = ["概念", "理论", "原理", "应用", "场景","定义"]
-KEYWORDS_CODE = ["代码", "编程", "程序", "group by", "示例","select","from"]
+KEYWORDS_CODE = ["代码", "编程", "程序", "函数", "示例","select","from"]
 KEYWORDS_WELCOME = ["朋友", "CDA", "大家好","数据分析师"]
 # 自动返回默认场景的秒数
 SILENCE_TIMEOUT = 10 
