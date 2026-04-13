@@ -8,7 +8,8 @@ import obsws_python as obs
 
 # ================= 配置区 =================
 OBS_PASSWORD = "1122334455" 
-MODEL_PATH = "/Users/liliming/vosk"  # 确保解压后的模型文件夹路径正确
+MODEL_PATH = "/Volumes/1TB/vosk"  # 确保解压后的模型文件夹路径正确
+\
 
 # 场景名称
 SCENE_TALK = "说话的小猫"  
@@ -16,7 +17,7 @@ SCENE_CODE = "写代码的小猫"
 SCENE_WELCOME = "欢迎小猫"  
 # 触发词
 KEYWORDS_TALK = ["概念", "理论", "原理", "应用", "场景","定义"]
-KEYWORDS_CODE = ["代码", "编程", "程序", "函数", "示例","select","from"]
+KEYWORDS_CODE = ["代码", "编程", "程序", "函数", "示例","select","from","统计","分析"]
 KEYWORDS_WELCOME = ["朋友", "CDA", "大家好","数据分析师"]
 # 自动返回默认场景的秒数
 SILENCE_TIMEOUT = 10 
